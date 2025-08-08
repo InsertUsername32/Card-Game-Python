@@ -464,8 +464,8 @@ def card11_Nature2():
   remove_bar("eco", 2)
  elif(prompt2 == "2"):
   clear_screen()
-  cardsp_deathbyplant()
-  False
+  remove_bar("plant", 3)
+  remove_bar("plant", 3)
  else:
   clear_screen()
   update_stats()
@@ -600,10 +600,10 @@ def cardsp_deathbyplant():
 def stability_stats():
   global stats
   stats = {
-    "🪖": -3,
-    "🏛️": -3,
-    "📈": -3,
-    "🌱": -3
+    "🪖": -1,
+    "🏛️": -1,
+    "📈": -1,
+    "🌱": -1
   }
 def remove_bar(bar_type,bar_amount):
  if(bar_type == "mil" and bar_amount == 1):
@@ -633,57 +633,57 @@ def remove_bar(bar_type,bar_amount):
 def add_bar(bar_type,bar_amount):
   if(bar_type == "mil" and bar_amount == 1):
    stats["🪖"] -= 1
-   if(stats["🪖"] <= -3):
-    stats["🪖"] = -3
+   if(stats["🪖"] <= -1):
+    stats["🪖"] = -1
   elif(bar_type == "mil" and bar_amount == 2):
    stats["🪖"] -= 2
-   if(stats["🪖"] <= -3):
-    stats["🪖"] = -3
+   if(stats["🪖"] <= -1):
+    stats["🪖"] = -1
   elif(bar_type == "mil" and bar_amount == 3):
    stats["🪖"] -= 3
-   if(stats["🪖"] <= -3):
-    stats["🪖"] = -3
+   if(stats["🪖"] <= -1):
+    stats["🪖"] = -1
   elif(bar_type == "gov" and bar_amount == 1):
    stats["🏛️"] -= 1
-   if(stats["🏛️"] <= -3):
-    stats["🏛️"] = -3
+   if(stats["🏛️"] <= -1):
+    stats["🏛️"] = -1
   elif(bar_type == "gov" and bar_amount == 2):
     stats["🏛️"] -= 2     
-    if(stats["🏛️"] <= -3):
-     stats["🏛️"] = -3
+    if(stats["🏛️"] <= -1):
+     stats["🏛️"] = -1
   elif(bar_type == "gov" and bar_amount == 3):
    stats["🏛️"] -= 3
-   if(stats["🏛️"] <= -3):
-    stats["🏛️"] = -3
+   if(stats["🏛️"] <= -1):
+    stats["🏛️"] = -1
   elif(bar_type == "eco" and bar_amount == 1):
    stats["📈"] -= 1
-   if(stats["📈"] <= -3):
-    stats["📈"] = -3
+   if(stats["📈"] <= -1):
+    stats["📈"] = -1
   elif(bar_type == "eco" and bar_amount == 2):
    stats["📈"] -= 2
-   if(stats["📈"] <= -3):
-    stats["📈"] = -3
+   if(stats["📈"] <= -1):
+    stats["📈"] = -1
   elif(bar_type == "eco" and bar_amount == 3):
    stats["📈"] -= 3
-   if(stats["📈"] <= -3):
-    stats["📈"] = -3
+   if(stats["📈"] <= -1):
+    stats["📈"] = -1
   elif(bar_type == "plant" and bar_amount == 1):
    stats["🌱"] -= 1
-   if(stats["🌱"] <= -3):
-    stats["🌱"] = -3
+   if(stats["🌱"] <= -1):
+    stats["🌱"] = -1
   elif(bar_type == "plant" and bar_amount == 2):
    stats["🌱"] -= 2
-   if(stats["🌱"] <= -3):
-    stats["🌱"] = -3
+   if(stats["🌱"] <= -1):
+    stats["🌱"] = -1
   elif(bar_type == "plant" and bar_amount == 3):
    stats["🌱"] -= 3
-   if(stats["🌱"] <= -3):
-    stats["🌱"] = -3
+   if(stats["🌱"] <= -1):
+    stats["🌱"] = -1
 #-----------------------
 def update_stats():
  for stat_name in stats:
    print(" ",stat_name, end="    ")  
- for i in range(6):
+ for i in range(4):
   print("")
   for stat_name in stats:
     if i > stats[stat_name]:
@@ -730,19 +730,19 @@ stability_stats()
 while True:
   update_stats()
   card_shuffler()
-  if(stats["🪖"] == 5):
+  if(stats["🪖"] >= 3):
    cardsp_deathbymil()
    break
    False
-  elif(stats["🏛️"] == 5):
+  elif(stats["🏛️"] >= 3):
    cardsp_deathbygovern()
    break
    False
-  elif(stats["📈"] == 5):
+  elif(stats["📈"] >= 3):
    cardsp_deathbyeco()
    break
    False
-  elif(stats["🌱"] == 5):
+  elif(stats["🌱"] >= 3):
    cardsp_deathbyplant()
    break
    False
